@@ -5,14 +5,14 @@
  * @date        15-May-2019
  * @version     Version 1.0
  * @details
- * 				Device: atmega8
-					Program:    1386 bytes (16.9% Full)
-					(.text + .data + .bootloader)
+ 		Device: atmega8
+		Program:    1386 bytes (16.9% Full)
+		(.text + .data + .bootloader)
 
-					Data:          0 bytes (0.0% Full)
-					(.data + .bss + .noinit)
+		Data:          0 bytes (0.0% Full)
+		(.data + .bss + .noinit)
 
-					Crystal: 8 Mhz Internal
+		Crystal: 8 Mhz Internal
  */
 
 #include "adc_controller.h"
@@ -53,7 +53,7 @@ int main(void)
 		reading_volts(ADC_OBJ_0);
 
 		if ( (data_filter.volts_input - data_filter.off_set_value) > data_filter.value_trigger ) {
-			/* The sensor detected an item, send signal to BoardDroid */
+			/* The sensor detected an item, then the microcontroller turn on a PIN */
 			ON_SIGNAL_0;
 			wait_milli_second(TIME_SIGNAL);
 			data_filter.new_calibration+=1;
@@ -106,7 +106,8 @@ static void init_adc(void)
  * @brief	init_adc
  * @details	Setting the ADC with the following parameters
  */
-static void  io_settings(void){
+static void  io_settings(void)
+{
 	DDRD|=(1<<PD7)|(1<<PD6)|(1<<PD5)|(1<<PD4);
 	DDRB |= (1<<PB3);
 }
