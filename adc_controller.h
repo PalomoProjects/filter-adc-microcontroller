@@ -12,12 +12,12 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#define ON_SIGNAL_0		PORTD |= (1<<PD4);
+#define ON_SIGNAL_0	PORTD |= (1<<PD4);
 #define OFF_SIGNAL_0	PORTD &=~(1<<PD4);
-#define ON_SIGNAL_1		PORTB |= (1<<PB3);
+#define ON_SIGNAL_1	PORTB |= (1<<PB3);
 #define OFF_SIGNAL_1	PORTB &=~ (1<<PB3);
-#define TIME_SIGNAL	 	650
-#define ADC_OBJ_0 		(&data_filter)
+#define TIME_SIGNAL	650
+#define ADC_OBJ_0 	(&data_filter)
 
 /*! Class structure for processing voltage from Infrared sensors */
 typedef struct{
